@@ -1,0 +1,31 @@
+﻿@model PruebaFail.Web.Data.Entities.Manager
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Manager</h2>
+
+<div>
+    <h4>Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Nombre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-success">Back to List</a>
+</div>
+

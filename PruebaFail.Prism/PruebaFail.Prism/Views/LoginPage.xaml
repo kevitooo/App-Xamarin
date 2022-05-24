@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PruebaFail.Prism.Views.LoginPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource colorBackground}">
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+            
+            <StackLayout>
+                <Image Source="Logo_Limbo2.png" Aspect="AspectFit"
+                       HeightRequest="130" WidthRequest="130"
+                       HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+            <!--continuar con Facebook-->
+            <StackLayout>
+                <Button Text="Continuar con Facebook" BackgroundColor="RoyalBlue"
+                        FontSize="Subtitle" FontAttributes="Bold"
+                        VerticalOptions="CenterAndExpand" 
+                        Command="{Binding FacebookCommand}"
+                        IsEnabled="{Binding IsEnabled}"/>
+            </StackLayout>
+
+            <StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                                   VerticalOptions="Center"
+                                   Color="{StaticResource colorPrimary}"
+                                   HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Entry Placeholder="Correo electrónico" Text="{Binding Email}" 
+                       Keyboard="Email" PlaceholderColor="Gray" FontSize="Medium"/>
+                <Entry Placeholder="Contraseña" Text="{Binding Password}" 
+                       IsPassword="True" PlaceholderColor="Gray" FontSize="Medium"/>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox IsChecked="{Binding IsRemember}"/>
+                    <Label Text="Recordarme" VerticalTextAlignment="Center"
+                           FontSize="Body" TextColor="DarkGray"/>
+                </StackLayout>
+                <Button Text="Iniciar Sesión" Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        FontAttributes="Bold" FontSize="Subtitle"/>
+                <Label Text="¿Olvidaste tu contraseña?" TextColor="DarkGray" 
+                       FontSize="Body" VerticalTextAlignment="Center"
+                       HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="StartAndExpand">
+                <Label Text="¿No tenés una cuenta?" TextColor="Black" FontSize="Subtitle"
+                       VerticalTextAlignment="Center"/>
+                <Label Text="Registrarme" TextColor="BlueViolet" 
+                       FontSize="Subtitle" VerticalTextAlignment="Center" 
+                       IsEnabled="{Binding IsEnabled}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

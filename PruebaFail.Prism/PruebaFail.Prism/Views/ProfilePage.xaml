@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PruebaFail.Prism.Views.ProfilePage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource colorBackground}">
+    
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="* Debe ingresar nombre completo (no se permiten apodos, sólo el nombre o apellido)"
+                   TextColor="DarkGray" FontSize="Small"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="Nombre:" TextColor="Black" FontSize="Medium"
+                       VerticalTextAlignment="Center"/>
+                <Entry Grid.Column="1" Placeholder="Nombre y apellido"
+                       Text="{Binding Owner.Nombre}"/>
+            </Grid>
+            
+            <Button Command="{Binding SaveCommand}" IsEnabled="{Binding IsEnabled}"
+                	Text="Guardar"/>
+            
+            <FlexLayout Direction="Column">
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Gray"/>
+            </FlexLayout>
+
+            <Button Command="{Binding ChangePasswordCommand}" IsEnabled="{Binding IsEnabled}" 
+                    BackgroundColor="Transparent" TextColor="BlueViolet" 
+                    Text="Cambiar contraseña"/>
+
+            <ActivityIndicator IsRunning="{Binding IsRunning}"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

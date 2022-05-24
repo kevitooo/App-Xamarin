@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PruebaFail.Prism.Views.RegisterPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource colorBackground}">
+
+    <ScrollView>
+        <StackLayout Padding="30" Orientation="Vertical" VerticalOptions="Start" Spacing="30">
+            <StackLayout VerticalOptions="StartAndExpand">
+                <Button Text="Continuar con Facebook" BackgroundColor="RoyalBlue"
+                        FontSize="Subtitle" FontAttributes="Bold" VerticalOptions="CenterAndExpand" 
+                        Command="{Binding FacebookCommand}" IsEnabled="{Binding IsEnabled}"/>
+            </StackLayout>
+            <StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsRunning}" VerticalOptions="Center"
+                                   Color="{StaticResource colorPrimary}" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Entry Placeholder="Correo electrónico" PlaceholderColor="Gray" FontSize="Subtitle"
+                       Keyboard="Email" Text="{Binding Email}"/>
+                <Entry Placeholder="Nombre y apellido" PlaceholderColor="Gray" FontSize="Subtitle"
+                       Text="{Binding Nombre}"/>
+                <Entry Placeholder="Contraseña" PlaceholderColor="Gray" FontSize="Subtitle"
+                       IsPassword="True" Text="{Binding Password}"/>
+                <Entry Placeholder="Confirmar contraseña" PlaceholderColor="Gray" FontSize="Subtitle"
+                       IsPassword="True" Text="{Binding PasswordConfirm}"/>
+                <Button Text="Registrarme" Command="{Binding RegisterCommand}" FontSize="Subtitle"
+                        IsEnabled="{Binding IsEnabled}" FontAttributes="Bold"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

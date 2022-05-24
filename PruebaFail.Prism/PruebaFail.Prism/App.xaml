@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             x:Class="PruebaFail.Prism.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--Parametros-->
+            <x:String x:Key="UrlAPI">https://pruebafail.azurewebsites.net</x:String>
+
+            <!--Colores-->
+            <Color x:Key="colorBackground">#FFFFFF</Color>
+            <Color x:Key="colorPrimary">#FF8A2BE2</Color>
+            <Color x:Key="colorSecondary">#067302</Color>
+            <Color x:Key="colorDanger">#F2055C</Color>
+            <Color x:Key="colorAccent">#FF8A2BE2</Color>
+            <Color x:Key="colorFont">#000000</Color>
+            <Color x:Key="colorFontInverse">#F2F2F2</Color>
+
+            <!--Estilos-->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource colorPrimary}" />
+                <Setter Property="BorderRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="{StaticResource colorFontInverse}" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>
